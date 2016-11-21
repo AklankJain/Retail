@@ -208,7 +208,13 @@ for i in range(270,400):
 
 cv2.imshow('imgsh', img2)
 
+print type(img2)
+#print img2.shape
+import pandas as pd
+
+#df=pd.DataFrame(img2)
 #print img2
+np.savetxt('test.csv',img2.reshape(-1,img2.shape[-1]), delimiter=',',fmt='%.18e')
 
 #np.savetxt("output.csv", img2, delimiter=",")  #Divay u need to edit it according to ur requirement.. Brp this is giving some error..
                                                 #If you want this array just google it on how to do it.. search 2d aray to csv in python
