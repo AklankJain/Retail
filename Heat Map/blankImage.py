@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 m = (288 - 64) / (144 - 226)
 
@@ -37,21 +38,24 @@ np.asarray(cx)
 np.asarray(cy)
 
 # Reading image
-img1 = cv2.imread('firstFrameGray.png')
+img1 = cv2.imread('frameToCopyFrom.png')
 
 trijal=cv2.imread('trijal.png')
 
 
-cv2.line(img1, (226, 64), (141, 288), (0, 0, 255), 2)
+#cv2.line(img1, (226, 64), (141, 288), (0, 0, 255), 2)
 # img1 = cv2.imread('firstFrameGrayHog.png')
 height, width, channel = img1.shape
 print height, width
 
 
 imgg=img1
+
+
 for i in range(height):
     for j in range(width):
         imgg[i,j]=255
+
 
 
 arr = [[0] * height] * width
@@ -60,11 +64,11 @@ for k in range(0, k):
     a = int(cx[k])
     b = int(cy[k])
     if a < width and b < height:
-        if arr[a][b] <= 10:
+        if arr[a][b] <= 100:
             flag = 1
-        elif arr[a][b] <= 30:
+        elif arr[a][b] <= 600:
             flag = 2
-        elif arr[a][b] <= 50:
+        elif arr[a][b] <= 1000:
             flag = 3
         else:
             flag = 4
@@ -102,6 +106,16 @@ for k in range(0, k):
             #if checkPointSide(i, a):
             arr[a][i] = arr[a][i] + 1
             img1[i, a] = [pxlValA, pxlValB, pxlValC]
+
+
+
+
+
+
+
+
+
+
 
 """
 # Plotting pixel
@@ -178,9 +192,11 @@ for i in range(700):
 
 
 
-cv2.imshow('ssk', img2)
+#cv2.imshow('ssk', img2)
 
 # Showing image
+
+
 cv2.imshow('img', img1)
 
 resized_img= cv2.resize(img1, (130, 130))
@@ -191,6 +207,12 @@ for i in range(270,400):
         img2[i,j]=resized_img[i-270,j-270]
 
 cv2.imshow('imgsh', img2)
+
+#print img2
+
+#np.savetxt("output.csv", img2, delimiter=",")  #Divay u need to edit it according to ur requirement.. Brp this is giving some error..
+                                                #If you want this array just google it on how to do it.. search 2d aray to csv in python
+
 
 
 alpha=0.5 #change it's value to maximize or minimize intensity
