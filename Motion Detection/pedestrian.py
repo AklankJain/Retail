@@ -1,3 +1,5 @@
+#To be run on peopleCounter.avi only 
+
 import numpy as np
 import math
 import cv2
