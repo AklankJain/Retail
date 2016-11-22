@@ -163,7 +163,7 @@ while True:
                             uniqueList.append(currList[i])
                             name='customer '+str(customerCount)
                             writer2.writerow((name,customerCount,150,abs(moveTime-stillTime)))
-                            writer1.writerow((150, moveTime - stillTime))
+                            writer1.writerow((150, abs(moveTime - stillTime)))
                             customerCount = customerCount + 1
                         else:
                             for k in range(0,len(uniqueList)):
@@ -173,7 +173,7 @@ while True:
                                 uniqueList.append(currList[i])
                                 name = 'customer ' + str(customerCount)
                                 writer2.writerow((name, customerCount, 150,abs(moveTime-stillTime)))
-                                writer1.writerow((150, moveTime - stillTime))
+                                writer1.writerow((150, abs(moveTime - stillTime)))
                                 customerCount = customerCount + 1
 
 
