@@ -6,10 +6,10 @@ import numpy
 
 
 BLUR_SIZE = 3
-NOISE_CUTOFF =25
+NOISE_CUTOFF =10
 
 
-cam = cv2.VideoCapture('moveMent.dav')
+cam = cv2.VideoCapture('tvf3.dav')
 
 #cam.set(3, 640)
 #cam.set(4, 480)
@@ -162,7 +162,7 @@ while True:
                         if len(uniqueList)==0:
                             uniqueList.append(currList[i])
                             name='customer '+str(customerCount)
-                            writer2.writerow((name,customerCount,150,moveTime-stillTime))
+                            writer2.writerow((name,customerCount,150,abs(moveTime-stillTime)))
                             writer1.writerow((150, moveTime - stillTime))
                             customerCount = customerCount + 1
                         else:
@@ -172,7 +172,7 @@ while True:
                             if uflag==0:
                                 uniqueList.append(currList[i])
                                 name = 'customer ' + str(customerCount)
-                                writer2.writerow((name, customerCount, 150,moveTime-stillTime))
+                                writer2.writerow((name, customerCount, 150,abs(moveTime-stillTime)))
                                 writer1.writerow((150, moveTime - stillTime))
                                 customerCount = customerCount + 1
 
