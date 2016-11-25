@@ -1,13 +1,14 @@
-#To be run on service entrance videos
-
 import numpy as np
 import math
+import csv
 import cv2
+import time
 cap = cv2.VideoCapture('1_05_R_01112016080000AM.dav')
 frame_now = cap.read()[1]
 print frame_now.shape
-
-fgbg = cv2.BackgroundSubtractorMOG2(history=20, varThreshold=38, bShadowDetection= True)
+f=open('peoplecounter.csv','wt')
+writer=csv.writer(f)
+fgbg = cv2.BackgroundSubtractorMOG2(history=20, varThreshold=30, bShadowDetection= True)
 #fgbg = cv2.bgsegm.createBackgroundSubtractorGMG(history=150, backgroundRatio=0.3)
 
 def line1(x,y):
@@ -72,12 +73,16 @@ while(1):
                     print 'One Crossed Above'
                     print point
                     crossedAbove += 1
+                    localtime = time.asctime(time.localtime(time.time()))
+                    writer.writerow(('People Going Above = '+str(crossedAbove),'People Going Down = '+str(crossedBelow),localtime))
                     pointFromBelow.remove(prevPoint)
 
                 if line2(xnew, ynew) > 0 and prevPoint in pointFromAbove: # Point is below the line
                     print 'One Crossed Below'
                     print point
                     crossedBelow += 1
+                    localtime = time.asctime(time.localtime(time.time()))
+                    writer.writerow(('People Going Above = ' + str(crossedAbove), 'People Going Down = ' + str(crossedBelow),localtime))
                     pointFromAbove.remove(prevPoint)
 
 
