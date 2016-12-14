@@ -1,5 +1,6 @@
 # Retail
 Working on ML and Computer Vision
+
 Technologies used: Pyhton 2.7, OpenCV Version 2.4.13
 
 There are three sections and all these sections contains their corresponding files.
