@@ -28,11 +28,17 @@ Python Usage: cv.AddWeighted(src1, alpha, src2, beta, gamma, dst) → None
 Parameters:
 
 src1 – first input array.
+
 alpha – weight of the first array elements.
+
 src2 – second input array of the same size and channel number as src1.
+
 beta – weight of the second array elements.
+
 dst – output array that has the same size and number of channels as the input arrays.
+
 gamma – scalar added to each sum.
+
 dtype – optional depth of the output array; when both input arrays have the same depth, dtype can be set to -1, which will be equivalent 
 to src1.depth().
 
