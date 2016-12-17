@@ -24,7 +24,9 @@ we overlay the heat map onto the layout.
 All the function calls used are general except for cv2.addWeighted(overlay, alpha,dest , 1 - alpha,0, output) [line no. 232]
 
 Python Usage: cv.AddWeighted(src1, alpha, src2, beta, gamma, dst) → None
-Parameters:	
+
+Parameters:
+
 src1 – first input array.
 alpha – weight of the first array elements.
 src2 – second input array of the same size and channel number as src1.
