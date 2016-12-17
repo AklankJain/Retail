@@ -33,8 +33,10 @@ dst – output array that has the same size and number of channels as the input 
 gamma – scalar added to each sum.
 dtype – optional depth of the output array; when both input arrays have the same depth, dtype can be set to -1, which will be equivalent 
 to src1.depth().
+
 The function addWeighted calculates the weighted sum of two arrays as follows:
             dst(I)=saturate(src1(I)*alpha+src2(I)*beta+gamma)    
+           
 where I is a multi-dimensional index of array elements. In case of multi-channel arrays, each channel is processed independently.
 
 The function can be replaced with a matrix expression:
